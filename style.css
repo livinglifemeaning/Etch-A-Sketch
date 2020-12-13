@@ -1,0 +1,42 @@
+.practice{
+ border: solid 1px grey;
+ width: 60px;
+ height: 50px;
+ background-color: #f2f2f2; 
+}
+
+#container{
+ display: grid;
+ max-width: 960px;
+ margin: auto; 
+ grid-template-columns: repeat(16, 60px); 
+ border: solid 1px grey;
+ 
+}
+
+button{
+ background-color: hotpink;
+ margin: auto;
+ color: white;
+ display: block; 
+ margin: auto;
+ margin-bottom: 10px;
+ width: 250px;
+ height:40px;
+ font-size: 24px;
+ text-transform: lowercase;
+ font-family: monospace; 
+}
+
+
+
+body{
+ background-color: #454C59;
+}
+
+.colored{
+ border: solid 1px grey;
+ width: 60px;
+ height: 50px;
+ background-color: black;  
+}

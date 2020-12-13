@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+   <button id="clear">Etch-a-Sketch </button>
+    <div id="container">
+      <div class="box practice" id="first"></div>
+    </div>
+
+    <!-- // JAVASCRIPT -->
+    <script>
+      const container = document.querySelector('#container'); 
+
+     for(i=0; i<= 254; i++){
+      const newDiv = document.createElement('div');
+
+      newDiv.classList.add('practice', 'box'); 
+
+       container.appendChild(newDiv);
+     }
+     
+     const grid = document.querySelectorAll('.box'); 
+      
+
+     grid.forEach(item => {item.addEventListener('mouseover', colorClass);
+
+     function colorClass(){
+      item.classList.remove('practice');
+      item.classList.add('colored'); 
+     }
+     }) 
+
+     const clear = document.querySelector("#clear"); 
+
+     clear.addEventListener('click', clearAll)
+
+     function clearAll(){
+       grid.forEach(item => {item.classList.remove('colored'); item.classList.add('practice'); })
+     }
+
+    </script>
+  </body>
+</html>
