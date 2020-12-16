@@ -7,42 +7,57 @@
     <title>Document</title>
   </head>
   <body>
-   <button id="clear">Etch-a-Sketch </button>
+    <button id="clear">Etch-a-Sketch</button>
     <div id="container">
-      <div class="box practice" id="first"></div>
+      <div class="" id="grid"></div>
     </div>
 
     <!-- // JAVASCRIPT -->
     <script>
-      const container = document.querySelector('#container'); 
+      const grid = document.querySelector("#grid");
 
-     for(i=0; i<= 254; i++){
-      const newDiv = document.createElement('div');
+            const clearButton = document.getElementById("clear");
 
-      newDiv.classList.add('practice', 'box'); 
+            clearButton.addEventListener('click', clearAll);
 
-       container.appendChild(newDiv);
-     }
+            function clearAll(){
+              location.reload();
+return false;
+              
+            }
+
+let size = prompt("Enter a number 1-100");
+    
+
+        if (size > 100) {
+          prompt("That number is too big! Enter a number 1-100.");
+        } else {
+          grid.style.cssText = `grid-template-rows: repeat(${size}, 1fr); grid-template-columns: repeat(${size}, 1fr)`;
+
+          for (let i = 0; i < size * size; i++) {
+            let div = document.createElement("div");
+            div.classList.add("gridBox");
+            grid.appendChild(div);
+          }
+        }
+
+        const boxes = document.querySelectorAll("div.gridBox");
+
+        boxes.forEach((item) => {
+          item.addEventListener("mouseover", colorClass);
+
+          function colorClass() {
+            item.classList.remove("gridBox");
+
+            item.classList.add("colored");
+
+            
+          }
+        });
      
-     const grid = document.querySelectorAll('.box'); 
+
+        
       
-
-     grid.forEach(item => {item.addEventListener('mouseover', colorClass);
-
-     function colorClass(){
-      item.classList.remove('practice');
-      item.classList.add('colored'); 
-     }
-     }) 
-
-     const clear = document.querySelector("#clear"); 
-
-     clear.addEventListener('click', clearAll)
-
-     function clearAll(){
-       grid.forEach(item => {item.classList.remove('colored'); item.classList.add('practice'); })
-     }
-
     </script>
   </body>
 </html>
